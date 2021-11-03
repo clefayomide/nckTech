@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import Body from "./components/Body";
+import MobileNavLinks from "./components/MobileNavLinks";
 
 function App() {
+  window.onload = () => {
+    const menu_btn = document.querySelector(".hamburger");
+    const mobile_menu = document.querySelector(".mobile-nav")
+    menu_btn.addEventListener("click", () => {
+      menu_btn.classList.toggle("is-active");
+      mobile_menu.classList.toggle("is-active")
+    });
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <MobileNavLinks />
+      <Header />
+      <Body />
     </div>
   );
 }
